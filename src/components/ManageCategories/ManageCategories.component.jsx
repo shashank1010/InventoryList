@@ -1,28 +1,25 @@
-import React, { useState } from "react";
-import { Button } from 'react-bootstrap';
+import React from "react";
+import { Button, Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { addNewCategory } from '../../store/actions.js'
 
-const ManageCategories = ({ categories = {}, addNewCategory, }) => {
-    const [showButton, setShowButton] = useState(!categories['']);
-    console.log(showButton, categories)
-    const categoryDom = Object.keys(categories).map((id, i) => <div key={id}>{id}</div>);
-    return <>
+import CategoryComponent from './Category/Category.component';
+import { addNewCategory } from '../../store/actions.js';
+
+const ManageCategories = ({ categories = [], addNewCategory }) => {
+    const categoryDom = categories.map((category, i) => <CategoryComponent editMode={true} key={ category.id } category={category} />);
+    return <Row>
         { categoryDom }
-        {
-            showButton
-                ? <Button onClick={ () => {
-                    addNewCategory({});
-                    setShowButton(false);
-                } }>Add New</Button>
-                : null 
-        }
-    </>
+        <Col>
+            <Button onClick={ () => {
+                addNewCategory({});
+            } }>Add New</Button>
+        </Col>
+    </Row>
 }
 
 const mapStateToProps = state => {
     return {
-        categories: state.categories
+        categories: state.categoryReducer
     }
 }
 const mapDispatchToProps = dispatch => {

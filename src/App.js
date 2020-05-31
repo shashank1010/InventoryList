@@ -7,14 +7,14 @@ import HeaderComponent from './components/Header/Header.component';
 import DashboardComponent from './components/Dashboard/Dashboard.component';
 import CategoryComponent from './components/Category/Category.component';
 import ManageCategoriesComponent from './components/ManageCategories/ManageCategories.component';
-import InventoryItem from './components/InventoryItem/InventoryItem.component';
+
 import './App.scss';
 
 function App() {
   return (
     <Router>
       <HeaderComponent />
-      <div className="container-fluid">
+      <div className="container-fluid py-3">
         <Switch>
           <Route exact path="/">
             <Redirect to="/dashboard" />
