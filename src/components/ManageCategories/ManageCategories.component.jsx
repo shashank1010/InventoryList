@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Navbar, Row } from 'react-bootstrap';
+import { Button, Col, Navbar, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import CategoryComponent from './Category/Category.component';
@@ -9,6 +9,12 @@ const ManageCategories = ({ categories = [], addNewCategory }) => {
     const categoryDom = categories.map((category, i) => <CategoryComponent editMode={true} key={ category.id } category={category} />);
     return <Row>
         { categoryDom }
+        {
+                categoryDom.length === 0
+                && <Col className="text-center">
+                    Nothing to Display. Start by Adding some items
+                </Col>
+        }
         <Navbar fixed="bottom" className="border-top footer-nav">
             <Button className="ml-auto" variant="success" onClick={ () => {
                 addNewCategory({});

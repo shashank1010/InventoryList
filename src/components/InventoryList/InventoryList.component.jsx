@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import { Button, Navbar, Row } from 'react-bootstrap';
+import { Button, Col, Navbar, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import InventoryItem from './InventoryItem/InventoryItem.component';
@@ -21,6 +21,13 @@ const InventoryList = ({ inventory = [] }) => {
     return <>
         <Row>
             { inventoryMap }
+            {
+                inventoryMap.length === 0
+                && !newitem
+                && <Col className="text-center">
+                    Nothing to Display. Start by Adding some items
+                </Col>
+            }
             {
                 newitem &&
                 <InventoryItem isNew={newitem} item={newitem} />
