@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import typesReducer from './types.reducer'
+import categoryReducer from './category.reducer'
 import inventoryReducer from './inventory.reducer'
 
 export default combineReducers({
-    typesReducer,
+    categoryReducer,
     inventoryReducer
 });

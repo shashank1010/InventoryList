@@ -9,8 +9,8 @@ const Menu = ({ categories = [] }) => (
     >
         {
             categories.map((category) => (
-                <Nav.Item>
-                    <Nav.Link as="Link" to={`/${category.id}`}>{ category.name }</Nav.Link>
+                <Nav.Item key={category.id}>
+                    <Nav.Link as={ Link } to={`/${category.id}`}>{ category.name }</Nav.Link>
                 </Nav.Item>
             ))
         }
