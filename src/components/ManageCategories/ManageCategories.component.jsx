@@ -12,7 +12,7 @@ const ManageCategories = ({ categories = [], addNewCategory }) => {
         <Col>
             <Button onClick={ () => {
                 addNewCategory({});
-            } }>Add New</Button>
+            } }>Add New Category</Button>
         </Col>
     </Row>
 }

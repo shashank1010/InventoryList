@@ -4,8 +4,7 @@ import { Switch, Route, Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import HeaderComponent from './components/Header/Header.component';
-import DashboardComponent from './components/Dashboard/Dashboard.component';
-import CategoryComponent from './components/Category/Category.component';
+import InventoryList from './components/InventoryList/InventoryList.component';
 import ManageCategoriesComponent from './components/ManageCategories/ManageCategories.component';
 
 import './App.scss';
@@ -21,13 +20,13 @@ function App() {
           </Route>
 
           <Route path="/dashboard">
-            <DashboardComponent />
+            <InventoryList />
           </Route>
           <Route path="/manage-categories">
             <ManageCategoriesComponent />
           </Route>
           <Route path="/:categoryId">
-            <CategoryComponent />
+            <InventoryList />
           </Route>
 
           <Route path="/page-not-found">

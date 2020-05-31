@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { nanoid } from 'nanoid'
 
 export const generateID = () => nanoid();
@@ -17,4 +18,11 @@ export const fieldTypes = [
     { name: 'Date', id: FieldTypesEnum.DATE },
     { name: 'Delete', id: FieldTypesEnum.DELETE },
 ];
-  
+
+export const usePrevious = (value) => {
+    const ref = useRef();
+    useEffect(() => {
+        ref.current = value;
+    });
+    return ref.current;
+}

@@ -13,10 +13,10 @@ export const addNewField = (id, category) => ({
     type: ADD_NEW_FIELD, id, category
 })
 
-export const addItem = () => ({
-    type: ADD_ITEM
+export const addItem = (item) => ({
+    type: ADD_ITEM, item
 })
 
-export const updateItem = () => ({
-    type: UPDATE_ITEM
+export const updateItem = (id, item) => ({
+    type: UPDATE_ITEM, item, id
 })
