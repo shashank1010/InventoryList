@@ -1,25 +1,28 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 const Menu = ({ categories }) => {
-    const { categoryId } = useParams();
+    const location = useLocation();
+    const activeId = location.pathname.split('/')[1];
     return (
         <Nav
-            activeKey={ `/${categoryId}` }
+            activeKey={ '/' + location.pathname.split('/')[1] }
             onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
         >
             {
-                categories.map((category) => (
-                    !category.saved ? null :
-                    <Nav.Item key={category.id}>
-                        <Nav.Link as={ Link } to={`/${category.id}`}>{ category.name }</Nav.Link>
-                    </Nav.Item>
-                ))
+                categories.map((category) => {
+                    return (
+                        !category.saved ? null :
+                        <Nav.Item key={category.id}>
+                            <Nav.Link as={ Link } to={`/${category.id}`} active={activeId === category.id}>{ category.name }</Nav.Link>
+                        </Nav.Item>
+                    )
+                })
             }
             <Nav.Item>
-                <Nav.Link as={ Link }  to="manage-categories">Manage Categories</Nav.Link>
+                <Nav.Link as={ Link } active={ activeId === 'manage-categories' } to="manage-categories">Manage Categories</Nav.Link>
             </Nav.Item>
         </Nav>
     )

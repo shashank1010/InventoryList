@@ -38,7 +38,7 @@ const InventoryItem = ({ isNew = false, item, doItemUpdate, doItemAdd, categorie
         }
     }, [id, doItemUpdate, doItemAdd, newItem]);
 
-    return <Col xs={ 12 } sm={ 6 } md={ 3 }>
+    return <Col className="mb-3" xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 }>
         <Card>
             <Card.Header className="px-3">
                 <Card.Title className="mb-0">

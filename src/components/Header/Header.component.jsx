@@ -5,11 +5,14 @@ import MenuComponent from '../Menu/Menu.component';
 
 function HeaderComponent () {
     return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" sticky="top" expand="md">
             <Navbar.Brand  as={ Link } to="/">
                 Inventory Wiz
             </Navbar.Brand >
-            <MenuComponent />
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse>
+                <MenuComponent />
+            </Navbar.Collapse>
         </Navbar>
     )
 }

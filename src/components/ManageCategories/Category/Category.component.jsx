@@ -37,7 +37,7 @@ const CategoryComponent = ({ category, doCategoryUpdate, doAddField }) => {
         doCategoryUpdate(id, categoryClone)
     }, [id, doCategoryUpdate, categoryClone])
 
-    return <Col xs={ 12 } sm={ 6 } md={ 3 }>
+    return <Col className="mb-3" xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 }>
         <Card>
             <Card.Header className="px-3">
                 <Card.Title className="mb-0">
