@@ -10,6 +10,11 @@ const InventoryList = ({ inventory = [] }) => {
     const { categoryId } = useParams();
     const [newitem, setNewitem] = useState(null);
     const oldInventory = usePrevious([...inventory])
+    const CreateButton = () => (
+        <Button className="ml-auto" variant="success" onClick={ () => {
+            setNewitem({ name: '', category: null, fields: {} });
+        } }>Add New Item</Button>
+    )
     useEffect(() => {
         if (newitem && inventory.length > oldInventory.length) {
             setNewitem(null);
@@ -25,7 +30,8 @@ const InventoryList = ({ inventory = [] }) => {
                 inventoryMap.length === 0
                 && !newitem
                 && <Col className="text-center">
-                    Nothing to Display. Start by Adding some items
+                    Nothing to Display. Start by Adding some items <br /> <br />
+                    <CreateButton />
                 </Col>
             }
             {
@@ -35,9 +41,7 @@ const InventoryList = ({ inventory = [] }) => {
         </Row>
 
         <Navbar fixed="bottom" className="border-top footer-nav">
-            <Button className="ml-auto" variant="success" onClick={ () => {
-                setNewitem({ name: '', category: null, fields: {} });
-            } }>Add New Item</Button>
+            <CreateButton />
         </Navbar>
     </>
 }

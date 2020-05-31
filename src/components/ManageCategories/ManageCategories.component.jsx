@@ -7,18 +7,22 @@ import { addNewCategory } from '../../store/actions.js';
 
 const ManageCategories = ({ categories = [], addNewCategory }) => {
     const categoryDom = categories.map((category, i) => <CategoryComponent editMode={true} key={ category.id } category={category} />);
+    const CreateButton = () => (
+        <Button className="ml-auto" variant="success" onClick={ () => {
+            addNewCategory({});
+        } }>Add New Category</Button>
+    );
     return <Row>
         { categoryDom }
         {
                 categoryDom.length === 0
                 && <Col className="text-center">
-                    Nothing to Display. Start by Adding some items
+                    Nothing to Display. Start by Adding some items <br /> <br />
+                    <CreateButton />
                 </Col>
         }
         <Navbar fixed="bottom" className="border-top footer-nav">
-            <Button className="ml-auto" variant="success" onClick={ () => {
-                addNewCategory({});
-            } }>Add New Category</Button>
+            <CreateButton />
         </Navbar>
     </Row>
 }
