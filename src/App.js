@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Switch, Route, Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import HeaderComponent from './components/header/header';
+import HeaderComponent from './components/Header/Header.component';
 import './App.scss';
 
 function App() {
@@ -14,8 +14,9 @@ function App() {
         <Route exact path="/">
           <Redirect to="/dashboard" />
         </Route>
-        <Route path="/dashboard"> </Route>
-        <Route path="/:categoryId"> </Route>
+
+        <Route path="/dashboard"></Route>
+        <Route path="/:categoryId"></Route>
 
         <Route path="/page-not-found">
           Page Not found<br />
