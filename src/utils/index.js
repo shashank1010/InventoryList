@@ -4,16 +4,16 @@ import { nanoid } from 'nanoid'
 export const generateID = () => nanoid();
 
 export const FieldTypesEnum = {
-    TEXT: 'TEXT',
-    DESCRIPTION: 'DESCRIPTION',
-    NUMBER: 'NUMBER',
-    DATE: 'DATE',
-    DELETE: 'DELETE'
+    TEXT: 'text',
+    TEXTAREA: 'textarea',
+    NUMBER: 'number',
+    DATE: 'date',
+    DELETE: 'delete'
 }
 
 export const fieldTypes = [
     { name: 'Text', id: FieldTypesEnum.TEXT },
-    { name: 'Description', id: FieldTypesEnum.DESCRIPTION },
+    { name: 'Description', id: FieldTypesEnum.TEXTAREA },
     { name: 'Number', id: FieldTypesEnum.NUMBER },
     { name: 'Date', id: FieldTypesEnum.DATE },
     { name: 'Delete', id: FieldTypesEnum.DELETE },

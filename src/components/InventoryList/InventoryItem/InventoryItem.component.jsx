@@ -67,10 +67,16 @@ const InventoryItem = ({ isNew = false, item, doItemUpdate, doItemAdd, categorie
             {
                 fields.map((field, i) => {
                     const name = field.name || `Field ${i + 1}`;
+                    const type = fieldTypes[field.typeIndex].id;
+                    const props = {};
+                    if (type === FieldTypesEnum.TEXTAREA) { props.as = type; }
+                    else { props.type = type; }
+
                     return (
                         <Form.Group controlId={field.id} key={i}>
                             <Form.Label>{name }</Form.Label>
                             <Form.Control
+                                { ...props }
                                 defaultValue={newItem.fields[field.id]}
                                 placeholder={`Enter ${name}`}
                                 onKeyUp={ (value) => onPropChange(newItem.fields, field.id, value)}
