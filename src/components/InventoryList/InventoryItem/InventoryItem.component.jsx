@@ -58,7 +58,7 @@ const InventoryItem = ({ isNew = false, item, doItemUpdate, doItemAdd, categorie
                     variant="outline-secondary"
                 >
                     {
-                        categories.map((category) => (
+                        categories.filter(({name}) => name).map((category) => (
                             <Dropdown.Item key={category.id} onClick={ onChangeCategory.bind(null, category) }>{ category.name }</Dropdown.Item>
                         ))
                     }
